@@ -1,16 +1,6 @@
-var Velocity = require('velocityjs'),
-  path = require('path'),
-  fs = require('fs');
+var velocity = require('velocityjs'),
+  expressize = require('expressize');
 
-exports = module.exports = {
-  "__express": function(templatePath, options, callback) {
-    templatePath = path.resolve(__dirname, templatePath);
-    fs.readFile(templatePath, 'utf8', function(err, data) {
-      if (err) {
-        return callback(err, null);
-      }
-      var output = Velocity.render(data, options, options.macros);
-      callback(null, output);
-    });
-  }
-};
+module = module.exports = expressize(function(data, options) {
+  return velocity.render(data, options, options.macros);
+});
