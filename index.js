@@ -9,7 +9,7 @@ exports = module.exports = {
       if (err) {
         return callback(err, null);
       }
-      var output = Velocity.render(data, options.context, options.macros);
+      var output = Velocity.render(data, options, options.macros);
       callback(null, output);
     });
   }
